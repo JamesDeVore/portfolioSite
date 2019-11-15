@@ -1,22 +1,35 @@
-.App {
-  text-align: center;
+body {
+  color: #000;
+  background-color: rgb(253, 255, 127);
+  transition: background-color 4s ease,color 4s ease;
+
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* panel styles */
+.panel {
+  /* min height incase content is higher than window height */
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: sans-serif;
+  border:1px solid black
 }
 
-.App-link {
-  color: #09d3ac;
+.color-sunrise {
+  background-color: rgb(204, 206, 102);
+}
+.color-morning {
+  background-color:rgba(3, 235, 252, 0.856);
+}
+.color-afternoon{
+  background-color:rgb(3, 152, 252)
+}
+.color-evening{
+  background-color: rgb(179, 116, 0);
+}
+.color-night{
+  color:white;
+  background-color: rgb(5, 0, 41);
 }
