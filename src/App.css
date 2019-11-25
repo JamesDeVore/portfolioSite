@@ -1,20 +1,31 @@
-body {
+.aboutPage {
   color: #000;
   background-color: rgb(253, 255, 127);
   transition: background-color 4s ease,color 4s ease;
+  padding-top:8vh;
+  
+}
 
+.aboutPaper{
+
+}
+.aboutPanels{
+  padding:12px;
+}
+.hide {
+  display:none;
+}
+.invisible {
+  opacity: 0;
 }
 
 /* panel styles */
 .panel {
   /* min height incase content is higher than window height */
   min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   font-family: sans-serif;
-  border:1px solid black
+  
+  
 }
 
 .color-sunrise {
@@ -32,4 +43,22 @@ body {
 .color-night{
   color:white;
   background-color: rgb(5, 0, 41);
+}
+
+.aboutOverlay{
+  margin:12px;
+  position: absolute;
+  min-height:100vh;
+  z-index:10;
+  background-color:rgb(187, 187, 187);
+  display:flex;
+  justify-content:center;
+}
+.beforePaper {
+  background-color:rgb(231, 231, 231) !important;
+  padding:24px;
+}
+
+.NavBar {
+  height:10vh;
 }

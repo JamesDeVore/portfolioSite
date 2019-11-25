@@ -6,14 +6,15 @@ export default function Clock(props) {
   const ClockFace = styled.div`
     height: 5rem;
     width: 8rem;
-    background-color: rgb(50, 50, 70);
+    background-color: rgb(0,0,0);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     position: fixed;
     border-radius: 15px;
-    cursor:grab;
+    cursor: grab;
+    z-index:10;
   `;
   const ClockText = styled.h1`
     color: limegreen;
@@ -42,13 +43,13 @@ export default function Clock(props) {
   //just needs to change over time
   return (
     <Draggable
-        axis="both"
-        handle=".handle"
-        defaultPosition={{x: 0, y: 0}}
-        position={null}
-        grid={[1,1]}
-        scale={1}
-        >
+      axis="both"
+      handle=".handle"
+      defaultPosition={{ x: 900, y: 50 }}
+      position={null}
+      grid={[1, 1]}
+      scale={1}
+    >
       <ClockFace className="handle">
         <ClockText>{`${hour}:${minute}`}</ClockText>
         <AMPM style={{ marginTop: margin }}>{ampm}</AMPM>
