@@ -29,7 +29,7 @@ export default function NavBar() {
             {links.map(link => {
               return (
                 <Link to={link.url}>
-                  <Button>{link.buttonText}</Button>
+                  <Button className="navLink">{link.buttonText}</Button>
                 </Link>
               );
             })}

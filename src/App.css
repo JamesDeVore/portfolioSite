@@ -6,14 +6,20 @@
   
 }
 
-.aboutPaper{
-
+.frontDivider{
+  border:2px solid white;
+  width:80%;
+  
 }
 .aboutPanels{
   padding:12px;
 }
 .hide {
-  display:none;
+  display:none !important;
+}
+
+.remove{
+  position:
 }
 .invisible {
   opacity: 0;
@@ -26,6 +32,9 @@
   font-family: sans-serif;
   
   
+}
+.navLink{
+color:white !important;
 }
 
 .color-sunrise {
@@ -61,4 +70,5 @@
 
 .NavBar {
   height:10vh;
+  background-color: rgb(19, 104, 143) !important;
 }
