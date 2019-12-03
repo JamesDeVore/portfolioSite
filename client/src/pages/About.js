@@ -8,7 +8,7 @@ import classNames from "classnames";
 import techCards from '../components/about/TechCards';
 import Work from  '../components/about/Work'
 import Night from '../components/about/Night'
-import { Container, Grid, Paper } from "@material-ui/core";
+import { Container, Grid, Paper, Typography, Divider } from "@material-ui/core";
 import $ from "jquery";
 export default function About() {
   const [scrollPos, setScrollPos] = useState(0);
@@ -21,7 +21,7 @@ export default function About() {
     { color: "morning", component: Work },
     { color: "afternoon", component: Work },
     { color: "evening", component: Work },
-    { color: "night", component: Night }
+    // { color: "night", component: Night }
   ];
 
   const getTime = (currentPos, maxPos) => {
@@ -86,10 +86,16 @@ export default function About() {
           window.scrollTo(0, 0);
         }}
       />
-      <Container className={classNames("aboutPage", { hide: showOverlay })}>
-        <Clock time={getTime(scrollPos, maxHeight)} />
+      <Container maxWidth="xl" className={classNames("aboutPage", { hide: showOverlay })}>
+        {/* <Clock time={getTime(scrollPos, maxHeight)} /> */}
         <Paper className="aboutPaper">
-          <Grid className="aboutPanels" container direction="column" spacing={2}>
+          <Grid className="aboutPanels" container alignItems="center" direction="column" spacing={2}>
+            <Grid item lg={10}>
+              <Typography variant="h2" subtitle>
+                A Day in the Life of James:
+              </Typography>
+              <Divider />
+            </Grid>
             {daySection.map((item, index) => {
               return (
                 <Grid

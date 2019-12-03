@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans&display=swap');
+
+body{
+  overflow-x:hidden;
+}
 .aboutPage {
+font-family: 'Noto sans', sans-serif;
   color: #000;
   background-color: rgb(253, 255, 127);
   transition: background-color 4s ease,color 4s ease;
   padding-top:8vh;
+  width:100vw;
+  display:flex;
+  justify-content: center;
   
 }
-
+.aboutPaper {
+  padding:0px 12px;
+  width:80vw;
+  background-color:rgb(236, 235, 235) !important;
+}
 .frontDivider{
   border:2px solid white;
   width:80%;
@@ -19,7 +32,7 @@
 }
 
 .remove{
-  position:
+  
 }
 .invisible {
   opacity: 0;
@@ -28,8 +41,9 @@
 /* panel styles */
 .panel {
   /* min height incase content is higher than window height */
-  min-height: 80vh;
+  min-height: 60vh;
   font-family: sans-serif;
+  width:100vw;
   
   
 }
@@ -69,6 +83,6 @@ color:white !important;
 }
 
 .NavBar {
-  height:10vh;
+  min-height:6vh;
   background-color: rgb(19, 104, 143) !important;
 }

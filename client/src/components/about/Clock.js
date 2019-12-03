@@ -45,7 +45,7 @@ export default function Clock(props) {
     <Draggable
       axis="both"
       handle=".handle"
-      defaultPosition={{ x: 900, y: 50 }}
+      defaultPosition={{ x: 600, y: 150 }}
       position={null}
       grid={[1, 1]}
       scale={1}
