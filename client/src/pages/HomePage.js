@@ -116,9 +116,11 @@ const HomePage = () => {
                     Feel free to check out some of my projects, or read about
                     me!
                   </Typography>
-                  <Typography variant="p" subtitle>
-                    This is constantly under development, so bear with me :)
-                  </Typography>
+                  <Grid item>
+                    <Typography variant="p" subtitle>
+                      This is constantly under development, so bear with me :)
+                    </Typography>
+                  </Grid>
                 </Grid>
                 <Grid
                   item
