@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans&display=swap');
 
 body{
-  overflow-x:hidden;
+  overflow:auto;
 }
 .aboutPage {
 font-family: 'Noto sans', sans-serif;
@@ -13,6 +13,10 @@ font-family: 'Noto sans', sans-serif;
   display:flex;
   justify-content: center;
   
+}
+.homeContent{
+  overflow:auto;
+  min-height:70vh;
 }
 .aboutPaper {
   padding:0px 12px;

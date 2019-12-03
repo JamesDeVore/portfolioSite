@@ -100,7 +100,7 @@ const HomePage = () => {
                 <Grid item xs={10}>
                   <Avatar
                     alt="James!"
-                    style={{ height: "200px", width: "200px" }}
+                    style={{ height: "150px", width: "150px" }}
                     src={james}
                   />
                 </Grid>
