@@ -113,7 +113,11 @@ const HomePage = () => {
                 </Grid>
                 <Grid item xs={10}>
                   <Typography variant="p" subtitle>
-                    Feel free to check out some of my projects, or read about me!
+                    Feel free to check out some of my projects, or read about
+                    me!
+                  </Typography>
+                  <Typography variant="p" subtitle>
+                    This is constantly under development, so bear with me :)
                   </Typography>
                 </Grid>
                 <Grid
