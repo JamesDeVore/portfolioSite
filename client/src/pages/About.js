@@ -21,7 +21,7 @@ export default function About() {
     { color: "morning", component: Work },
     { color: "afternoon", component: Work },
     { color: "evening", component: Work },
-    // { color: "night", component: Night }
+    { color: "night", component: Night }
   ];
 
   const getTime = (currentPos, maxPos) => {
