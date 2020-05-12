@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import {} from "@fortawesome/free-solid-svg-icons";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 export default function NavBar() {
   const links = [
     {
@@ -10,6 +11,16 @@ export default function NavBar() {
     {
       url: "/about",
       buttonText: "About Me",
+    },
+  ];
+  const externalLinks = [
+    {
+      url: "https://github.com/jamesdevore",
+      buttonText: <FaGithub size="2em" />,
+    },
+    {
+      url: "https://www.linkedin.com/in/jdevore4592/",
+      buttonText: <FaLinkedin size="2em" />,
     },
   ];
   return (
@@ -40,6 +51,13 @@ export default function NavBar() {
               </li>
             );
           })}
+          {externalLinks.map((link) => (
+            <li className="nav-item">
+              <a href={link.url} target="blank" className="nav-link">
+                {link.buttonText}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
