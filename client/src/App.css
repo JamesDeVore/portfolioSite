@@ -65,8 +65,21 @@ font-family: 'Noto sans', sans-serif;
 .beforePaper {
   background-color:rgb(231, 231, 231) !important;
   padding:24px;
+  float:left
 }
 .HomeContainer{
-  background-color: #84868E;
-  
+  background-color: #F8F5F0;
+  padding-top:10px;
+
+}
+
+.about-me-row{
+  background-color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.75);
+
+}
+.about-me-row hr{
+  background-color:#8E8C84
 }

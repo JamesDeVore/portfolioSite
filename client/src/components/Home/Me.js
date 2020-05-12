@@ -4,11 +4,15 @@ import james from "../../assets/james.jpg";
 export default function Me() {
   return (
     <div className="container">
-      <div className="row flex-auto align-content-center p-4">
+      <div className="row flex align-items-center justify-content-center p-4 about-me-row">
+        <div className="col-md-12 text-center">
+          <h2>A Little About Me</h2>
+          <hr />
+        </div>
         <div className="col-md-4">
           <img
             className="img-fluid"
-            height="auto"
+            height="250"
             width="250px"
             src={james}
             alt="James"
@@ -16,8 +20,6 @@ export default function Me() {
         </div>
         <div className="col-md-6">
           <div>
-            <h2>A Little About Me</h2>
-            <hr />
             <p>
               I'm an Ecologist turned software developer, endlessly distracted
               by new technologies and coding apps nobody asked for.

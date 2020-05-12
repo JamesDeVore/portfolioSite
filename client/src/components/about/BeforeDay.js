@@ -11,7 +11,8 @@ export default function BeforeDay({ showOverlay, toggleOverlay }) {
       className={classNames("aboutOverlay", {
         animated: !showOverlay,
         slideOutDown: !showOverlay,
-        height: !showOverlay ? 0 : "auto"
+        height: !showOverlay ? 0 : "auto",
+        display: !showOverlay ? "none" : "block",
       })}
     >
       <Paper className="beforePaper">

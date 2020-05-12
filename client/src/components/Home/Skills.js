@@ -1,36 +1,37 @@
 import React from "react";
 import MainSection from "./Section";
-import { Container, Typography, Grid, Avatar } from "@material-ui/core";
 import { styled } from "@material-ui/styles";
 import SkillList from "../skills";
-import TextContainer from "./TextContainer";
 
-const Description = styled(Typography)({
-  fontFamily: "'Open Sans Condensed', sans-serif;",
-});
 export default function Skills() {
   return (
-    <MainSection>
-      <Grid container direction="row">
-        <TextContainer>
-          <Description variant="h2">A little about what I do...</Description>
-          <hr style={{ height: "2px", backgroundColor: "black" }} />
-          <Description variant="p">
-            From making front end applications in React, to authentication and
-            database queries in with Node or C#. I Love working on all aspects
-            of a project, and don't limit myself to just one stack.
-          </Description>
-          <br />
-          <Description variant="p">
-            I love branching out and applying new languages or technologies, and
-            often use a silly project as an excuse to try my hand at
-            implementing something I've never done before.
-          </Description>
-        </TextContainer>
-        <Grid item container justify="space-evenly">
+    <div className="container">
+      <div className="row flex align-items-center justify-content-center p-4 about-me-row">
+        <div className="col-md-12 text-center">
+          <h2>A Little About What I Do</h2>
+          <hr />
+        </div>
+        <div className="col-md-4">
+          <div>
+            <p>
+              Currently I am working as a full-stack software developer with a
+              small company in Chapel Hill, NC specializing in manufacturing
+              insights and production management.
+            </p>
+            <p>
+              I am lucky enough to have my hands on all aspects of the
+              development process, from coding custom components for the
+              customer facing UI, to authentication and validation in C# on the
+              back end, to observing build pipelines and deployment for new
+              clients.
+            </p>
+          </div>
+        </div>
+        <div className="row col-md-6 justify-content-center">
           <SkillList />
-        </Grid>
-      </Grid>
-    </MainSection>
+        </div>
+        <div className="row"></div>
+      </div>
+    </div>
   );
 }

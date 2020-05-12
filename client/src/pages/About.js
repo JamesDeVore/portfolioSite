@@ -5,9 +5,9 @@ import Clock from "../components/about/Clock";
 import BeforeDay from "../components/about/BeforeDay";
 import classNames from "classnames";
 
-import techCards from '../components/about/TechCards';
-import Work from  '../components/about/Work'
-import Night from '../components/about/Night'
+import techCards from "../components/about/TechCards";
+import Work from "../components/about/Work";
+import Night from "../components/about/Night";
 import { Container, Grid, Paper, Typography, Divider } from "@material-ui/core";
 import $ from "jquery";
 export default function About() {
@@ -21,7 +21,7 @@ export default function About() {
     { color: "morning", component: Work },
     { color: "afternoon", component: Work },
     { color: "evening", component: Work },
-    { color: "night", component: Night }
+    { color: "night", component: Night },
   ];
 
   const getTime = (currentPos, maxPos) => {
@@ -44,7 +44,7 @@ export default function About() {
   useEffect(() => {
     setMaxHeight($(".aboutPage").height());
     $(window)
-      .scroll(function() {
+      .scroll(function () {
         // selectors
         var $window = $(window),
           $body = $(".aboutPage"),
@@ -53,7 +53,7 @@ export default function About() {
         // Change 33% earlier than scroll position so colour is there when you arrive.
         var scroll = $window.scrollTop() + $window.height() / 3;
         setScrollPos($window.scrollTop());
-        $panel.each(function() {
+        $panel.each(function () {
           var $this = $(this);
 
           // if position is within range of this panel.
@@ -64,7 +64,7 @@ export default function About() {
             $this.position().top + $this.height() > scroll
           ) {
             // Remove all classes on body with color-
-            $body.removeClass(function(index, css) {
+            $body.removeClass(function (index, css) {
               return (css.match(/(^|\s)color-\S+/g) || []).join(" ");
             });
 
@@ -79,17 +79,19 @@ export default function About() {
 
   return (
     <>
-      <BeforeDay
-        showOverlay={showOverlay}
-        toggleOverlay={() => {
-          setShowOverlay(false);
-          window.scrollTo(0, 0);
-        }}
-      />
-      <Container maxWidth="xl" className={classNames("aboutPage", { hide: showOverlay })}>
+      <Container
+        maxWidth="xl"
+        className={classNames("aboutPage", { hide: showOverlay })}
+      >
         {/* <Clock time={getTime(scrollPos, maxHeight)} /> */}
         <Paper className="aboutPaper">
-          <Grid className="aboutPanels" container alignItems="center" direction="column" spacing={2}>
+          <Grid
+            className="aboutPanels"
+            container
+            alignItems="center"
+            direction="column"
+            spacing={2}
+          >
             <Grid item lg={10}>
               <Typography variant="h2" subtitle>
                 A Day in the Life of James:
@@ -105,13 +107,13 @@ export default function About() {
                   className={classNames("panel", {
                     animated: activeDay === item.color,
                     fadeIn: activeDay === item.color,
-                    slower: activeDay === item.color
+                    slower: activeDay === item.color,
                   })}
                   data-color={item.color}
                 >
                   <div
                     className={classNames({
-                      invisible: activeDay !== item.color
+                      invisible: activeDay !== item.color,
                     })}
                   >
                     <item.component props={techCards[item.color]} />

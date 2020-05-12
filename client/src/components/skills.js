@@ -6,6 +6,10 @@ import azure from "../assets/azure.png";
 import aws from "../assets/aws.png";
 import mongo from "../assets/mongo.jpg";
 import python from "../assets/python.jpg";
+import sql from "../assets/sql.jpg";
+import rust from "../assets/rust.jpg";
+import git from "../assets/git.png";
+import heroku from "../assets/heroku.png";
 import { Grid, Chip, Avatar } from "@material-ui/core";
 
 const skillItems = [
@@ -22,10 +26,22 @@ const skillItems = [
     image: node,
   },
   {
-    title: "C-Sharp",
+    title: "C#",
     bckg: "rgb(56,0,143)",
     text: "rgb(250,250,250)",
     image: csharp,
+  },
+  {
+    title: "Python",
+    bckg: "rgb(54,109,157)",
+    text: "rgb(248,190,48)",
+    image: python,
+  },
+  {
+    title: "Rust",
+    bckg: "#C49F7C",
+    text: "white",
+    image: rust,
   },
   {
     title: "Azure",
@@ -40,32 +56,46 @@ const skillItems = [
     image: aws,
   },
   {
-    title: "Mongo",
+    title: "MongoDB",
     bckg: "rgb(18,142,77)",
     text: "rgb(248,220,152)",
     image: mongo,
   },
   {
-    title: "Python",
-    bckg: "rgb(54,109,157)",
-    text: "rgb(248,190,48)",
-    image: python,
+    title: "SQL",
+    bckg: "#B8D432",
+    text: "#2975C9",
+    image: sql,
+  },
+  {
+    title: "Git",
+    bckg: "#3F2C00",
+    text: "White",
+    image: git,
+  },
+  {
+    title: "Heroku",
+    bckg: "#5721B2",
+    text: "White",
+    image: heroku,
   },
 ];
 
 export default function skills(props) {
   return skillItems.map((skillObj) => {
     return (
-      <Grid item>
+      <div className="col-md-4">
         <Chip
           label={skillObj.title}
           style={{
             backgroundColor: skillObj.bckg,
             color: skillObj.text,
+            margin: "10px 0px",
+            height: "45px",
           }}
           avatar={<Avatar src={skillObj.image} />}
         />
-      </Grid>
+      </div>
     );
   });
 }

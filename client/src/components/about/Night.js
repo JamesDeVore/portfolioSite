@@ -39,7 +39,7 @@ export default function Night(props) {
             <Typography variant="p">
               When I say fun, I of course mean playing with Arduinos and
               Raspberry Pis
-            </Typography>
+            </Typography><br />
             <Typography variant="p" subtitle>
               Here is a brief summary of what I've made (pictures probably to
               come soon)
@@ -52,9 +52,10 @@ export default function Night(props) {
                 <ListItemText>GPS tracking dog collar</ListItemText>
               </ListItem>
               <ListItem>
-                <ListItemText>
-                  (In Progress) Arduino Controlled Christmas Lights
-                </ListItemText>
+                <ListItemText>Arduino Controlled Christmas Lights</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemText>Arduino GPS Tracker for my motorcycle trips</ListItemText>
               </ListItem>
             </List>
           </Grid>
@@ -65,7 +66,7 @@ export default function Night(props) {
             <br />
             <Typography variant="p">
               I've recently found a love for 18th century cooking, running,
-              motorcycling, and of course...
+              motorcycling, camping and of course...
             </Typography>
           </Grid>
           <Grid item xs={5}>
@@ -73,7 +74,9 @@ export default function Night(props) {
               <CardContent>
                 <Grid container justify="center">
                   <Grid item>
-                    <Typography variant="h5">Myrah - a.k.a. "Bubbah"</Typography>
+                    <Typography variant="h5">
+                      Myrah - a.k.a. "Bubbah"
+                    </Typography>
                   </Grid>
                 </Grid>
                 <Divider />
@@ -90,7 +93,12 @@ export default function Night(props) {
                     </CardMedia>
                   </Grid>
                 </Grid>
-                <Typography variant="p">Honestly a good part of my time not spent in front of a keyboard is spent out running, chasing squirrels on a hike, or fixing toys she has broken. Is it weird to have your dog on your portfolio site? Well it's probably too late for that.</Typography>
+                <Typography variant="p">
+                  Honestly a good part of my time not spent in front of a
+                  keyboard is spent out running, chasing squirrels on a hike, or
+                  fixing toys she has broken. Is it weird to have your dog on
+                  your portfolio site? Well it's probably too late for that.
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
