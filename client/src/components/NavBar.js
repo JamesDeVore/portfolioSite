@@ -1,30 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import { styled } from "@material-ui/core/styles";
-import styles from "../styles/main";
 
-const SecondaryLink = styled(Button)({
-  color: styles.color.secondary,
-  margin: "auto",
-  alignSelf: "center",
-});
-
-const MiddleTitle = styled(Typography)({
-  color: styles.color.main,
-  fontWeight: "900",
-  textDecoration: "underline",
-});
-
-const Name = styled(Typography)({
-  color: styles.color.secondary,
-});
 export default function NavBar() {
   const links = [
     {
@@ -37,37 +13,59 @@ export default function NavBar() {
     },
   ];
   return (
-    <AppBar position="relative" className="NavBar">
-      <Toolbar variant="dense">
-        <Grid
-          container
-          display="flex"
-          justify="space-between"
-          alignItems="center"
-        >
-          <Grid item>
-            <Name variant="h6" m={14}>
-              James DeVore
-            </Name>
-          </Grid>
-          <Grid item>
-            <MiddleTitle variant="h6" m={14}>
-              Software Developer
-            </MiddleTitle>
-          </Grid>
-          <Grid item mx="auto">
-            {links.map((link) => {
-              return (
-                <Link to={link.url}>
-                  <SecondaryLink className="navLink">
-                    {link.buttonText}
-                  </SecondaryLink>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a className="navbar-brand" href="#">
+        James DeVore
+      </a>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarColor01"
+        aria-controls="navbarColor01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+
+      <div className="collapse navbar-collapse" id="navbarColor01">
+        <ul className="navbar-nav mr-auto">
+          {links.map((link) => {
+            return (
+              <li className="nav-item">
+                <Link className="nav-link" to={link.url}>
+                  <a className="navLink">{link.buttonText}</a>
                 </Link>
-              );
-            })}
-          </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
+    // <AppBar position="relative" className="NavBar">
+    //   <Toolbar variant="dense">
+    //     <Grid
+    //       container
+    //       display="flex"
+    //       justify="space-between"
+    //       alignItems="center"
+    //     >
+    //       <Grid item>
+    //         <Name variant="h6" m={14}>
+    //           James DeVore
+    //         </Name>
+    //       </Grid>
+    //       <Grid item>
+    //         <MiddleTitle variant="h6" m={14}>
+    //           Software Developer
+    //         </MiddleTitle>
+    //       </Grid>
+    //       <Grid item mx="auto">
+    //
+    //       </Grid>
+    //     </Grid>
+    //   </Toolbar>
+    // </AppBar>
   );
 }

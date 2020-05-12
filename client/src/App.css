@@ -14,10 +14,7 @@ font-family: 'Noto sans', sans-serif;
   justify-content: center;
   
 }
-.homeContent{
-  overflow:auto;
-  min-height:70vh;
-}
+
 .aboutPaper {
   padding:0px 12px;
   width:80vw;
@@ -31,13 +28,7 @@ font-family: 'Noto sans', sans-serif;
 .aboutPanels{
   padding:12px;
 }
-.hide {
-  display:none !important;
-}
 
-.remove{
-  
-}
 .invisible {
   opacity: 0;
 }
@@ -70,21 +61,12 @@ font-family: 'Noto sans', sans-serif;
   background-color: rgb(5, 0, 41);
 }
 
-.aboutOverlay{
-  margin:12px;
-  position: absolute;
-  min-height:100vh;
-  z-index:10;
-  background-color:rgb(187, 187, 187);
-  display:flex;
-  justify-content:center;
-}
+
 .beforePaper {
   background-color:rgb(231, 231, 231) !important;
   padding:24px;
 }
-
-.NavBar {
-  min-height:6vh;
-  background-color: rgb(60, 63, 65) !important;
+.HomeContainer{
+  background-color: #84868E;
+  
 }
