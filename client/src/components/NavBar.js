@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {} from "@fortawesome/free-solid-svg-icons";
+
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 export default function NavBar() {
   const links = [

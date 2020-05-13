@@ -30,7 +30,7 @@ export default function Me() {
             </p>
             <p>
               I'm just beginning on my journey as a software developer, but I
-              eargly take on any challenge, and as long I as I get to learn
+              eagerly take on any challenge, and as long I as I get to learn
               something along the way, I consider any endeavor a success
             </p>
           </div>

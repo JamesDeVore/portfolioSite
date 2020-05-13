@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import "./App.css";
 
+// TODO Implement a theme selector coolors.com
 function App() {
   return (
     <>

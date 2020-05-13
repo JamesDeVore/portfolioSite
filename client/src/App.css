@@ -68,7 +68,7 @@ font-family: 'Noto sans', sans-serif;
   float:left
 }
 .HomeContainer{
-  background-color: #F8F5F0;
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
   padding-top:10px;
 
 }
