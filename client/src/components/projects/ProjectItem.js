@@ -1,72 +1,25 @@
 import React, { useState } from "react";
+import ImgCarousel from "./ImgCarousel";
 
 export default function ProjectItem({
   project: { images, name, summary, detailedDesc },
 }) {
-  const [current, setCurrent] = useState(0);
-
-  let handlePictures = (inc) => {
-    let result = current + inc;
-    if (result < 0) {
-      result = images.length - 1;
-    } else if (result === images.length) {
-      result = 0;
-    }
-    setCurrent(result);
-  };
   return (
-    <div className="row justify-content-center">
+    <div className="row col-md-12 justify-content-center project-item">
       <div className="col-md-12">
-        <h1>{name}</h1>
+        <h1 className="text-center font-weight-bold">{name}</h1>
       </div>
-      <div className="col-md-10">
-        <div
-          id="carouselExampleControls"
-          className="carousel slide rounded"
-          data-ride="carousel"
-        >
-          <div className="carousel-inner">
-            {images.map((img, index) => (
-              <div
-                className={`carousel-item ${
-                  index === current ? " active" : ""
-                }`}
-              >
-                <img className="d-block w-100" src={img} alt="" />
-              </div>
-            ))}
-          </div>
-          <a
-            className="carousel-control-prev"
-            role="button"
-            data-slide="prev"
-            onClick={() => handlePictures(-1)}
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a
-            className="carousel-control-next"
-            role="button"
-            data-slide="next"
-            onClick={() => handlePictures(1)}
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Next</span>
-          </a>
+      <div className="p-2">
+        <div className="offset-1 col-md-10">
+          <ImgCarousel images={images} />
+        </div>
+
+        <div className=" text-center offset-md-3 col-md-6">
+          <p className="font-weight-light card-text">{summary}</p>
         </div>
       </div>
       <div className="col-md-10">
-        <p>{summary}</p>
-      </div>
-      <div className="col-md-12">
-        <p>{detailedDesc}</p>
+        <p style={{ textIndent: "5em" }}>{detailedDesc}</p>
       </div>
     </div>
   );

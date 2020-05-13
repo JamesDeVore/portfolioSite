@@ -13,7 +13,7 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia
+  CardMedia,
 } from "@material-ui/core";
 
 export default function Morning({ props }) {
@@ -42,8 +42,8 @@ export default function Morning({ props }) {
         <Grid item sm={8}>
           <Typography variant="p">{props.intro}</Typography>
         </Grid>
-        <Grid container justify="center" spacing={2}>
-          {props.techCards.map(cardObj => (
+        <Grid container justify="center" alignItems="center" spacing={2}>
+          {props.techCards.map((cardObj) => (
             <Grid item md={12 / props.techCards.length}>
               <Card raised>
                 <CardContent>

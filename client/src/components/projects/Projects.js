@@ -18,7 +18,7 @@ const projects = [
     summary:
       "This is a web app I created with the hopes for people to learn a little more about their representatives in government. Simply type in a name, and see voting history, bills passed, trips funded, and other valuable information",
     detailedDesc:
-      "Check My Representative is powered by information from ProPublica Congress API. By leveraging their immense, up to data data, I can create valuable insights into representatives using D3 JS to create unique charts, and Google Geocoding API to illustrate the locations of trips around the world. The styling was done with Tailwind, and is mobile-friendly.",
+      "Check My Representative is powered by information from ProPublica Congress API. By leveraging their immense, up to date data, I can create valuable insights into representatives using D3 JS to create unique charts, and Google Geocoding API to illustrate the locations of trips around the world. The styling was done with Tailwind, and is mobile-friendly.",
   },
   {
     name: "Pathfinder Tooling",

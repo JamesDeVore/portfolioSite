@@ -8,7 +8,14 @@ import classNames from "classnames";
 import techCards from "../components/about/TechCards";
 import Work from "../components/about/Work";
 import Night from "../components/about/Night";
-import { Container, Grid, Paper, Typography, Divider } from "@material-ui/core";
+import {
+  Container,
+  Grid,
+  Paper,
+  Box,
+  Typography,
+  Divider,
+} from "@material-ui/core";
 import $ from "jquery";
 export default function About() {
   const [scrollPos, setScrollPos] = useState(0);
@@ -79,8 +86,9 @@ export default function About() {
 
   return (
     <>
-      <Container
+      <Box
         maxWidth="xl"
+        justifyContent="center"
         className={classNames("aboutPage", { hide: showOverlay })}
       >
         {/* <Clock time={getTime(scrollPos, maxHeight)} /> */}
@@ -107,7 +115,7 @@ export default function About() {
                   className={classNames("panel", {
                     animated: activeDay === item.color,
                     fadeIn: activeDay === item.color,
-                    slower: activeDay === item.color,
+                    slow: activeDay === item.color,
                   })}
                   data-color={item.color}
                 >
@@ -124,7 +132,7 @@ export default function About() {
             })}
           </Grid>
         </Paper>
-      </Container>
+      </Box>
     </>
   );
 }
