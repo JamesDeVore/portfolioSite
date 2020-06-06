@@ -6,8 +6,7 @@ const mapStyles = {
   height: "40vh",
 };
 
-let key = "AIzaSyCqVF5l17T_UvfAq65ZPURO1RA0GC3KvDk";
-
+//add
 let tempMarkers = [
   { lat: 35.946461, lng: -78.833037 },
   { lat: 35.956934, lng: -78.841615 },
@@ -62,5 +61,5 @@ const MapContainer = ({ google }) => {
 };
 
 export default GoogleApiWrapper({
-  apiKey: key,
+  apiKey: process.env.REACT_APP_GAPI,
 })(MapContainer);
