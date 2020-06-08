@@ -1,15 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Sunrise from "../components/about/Sunrise";
-import Clock from "../components/about/Clock";
-import BeforeDay from "../components/about/BeforeDay";
+// import Clock from "../components/about/Clock";
+// import BeforeDay from "../components/about/BeforeDay";
 import classNames from "classnames";
 
 import techCards from "../components/about/TechCards";
 import Work from "../components/about/Work";
 import Night from "../components/about/Night";
 import {
-  Container,
+  // Container,
   Grid,
   Paper,
   Box,

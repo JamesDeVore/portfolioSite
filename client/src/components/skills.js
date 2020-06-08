@@ -10,7 +10,7 @@ import sql from "../assets/sql.jpg";
 import rust from "../assets/rust.jpg";
 import git from "../assets/git.png";
 import heroku from "../assets/heroku.png";
-import { Grid, Chip, Avatar } from "@material-ui/core";
+import { Chip, Avatar } from "@material-ui/core";
 
 const skillItems = [
   {

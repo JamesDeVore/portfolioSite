@@ -14,10 +14,66 @@ const app = express();
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(bodyParser.urlencoded({ extended: false }));
 // An api endpoint that returns a short list of items
-app.get("/api/getList", (req, res) => {
-  var list = ["item1", "item2", "item3"];
-  res.json(list);
-  console.log("Sent list of items");
+
+//TODO Create methods to retrieve coordinates
+
+app.get("/api/checkLive", async (req, res) => {
+  const query = "select * from readings order by reading_id desc limit 1";
+  var connection = mysql.createConnection({
+    host: process.env.endpoint,
+    user: process.env.user,
+    password: process.env.password,
+    database: "main",
+    port: process.env.dbport,
+  });
+
+  connection.connect();
+
+  connection.query(query, function (error, results, fields) {
+    let is_live = false;
+    console.log(results);
+    if (results) {
+      let timestamp = moment(results[0].reading_date);
+      is_live = timestamp.diff(moment(), "days") < 10;
+    }
+    res.send({ data: is_live });
+  });
+
+  connection.end();
+});
+app.get("/api/getCoordinates", async (req, res) => {
+  //Parameters: start_date, end_date, max_num
+
+  let returnData = [];
+  var connection = mysql.createConnection({
+    host: process.env.endpoint,
+    user: process.env.user,
+    password: process.env.password,
+    database: "main",
+    port: process.env.dbport,
+  });
+  //yesterday moment().subtract(1, "days").format("YYYY-MM-DD HH:mm:ss")
+  let {
+    start_date,
+    end_date = moment().format("YYYY-MM-DD HH:mm:ss"),
+    max_num,
+  } = req.query;
+
+  let whereClauses = null;
+
+  let base_query = `select  * from readings ${
+    whereClauses ? `WHERE ${whereClauses}` : ""
+  } ${max_num ? "limit " + max_num : ""}`;
+  connection.connect();
+
+  connection.query(base_query, function (error, results, fields) {
+    if (results) {
+      returnData = results;
+    }
+    res.send({ data: returnData });
+  });
+
+  connection.end();
 });
 
 app.post("/text", async (req, res) => {

@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Map from "../components/Map/Map";
+import Stats from "../components/Map/Stats";
+import moment from "moment";
 
 export default function Tracker() {
+  const [coordinates, setCoordinates] = useState([]);
+  const [isTracking, setIsTracking] = useState(false);
+  useEffect(() => {
+    fetch("/api/getCoordinates")
+      .then((res) => res.json())
+      .then((res) => setCoordinates(res.data));
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/checkLive")
+      .then((res) => res.json())
+      .then((res) => setIsTracking(res.data));
+
+    // .then(res => setIsTracking(res.data))
+  }, []);
   return (
     <div className="HomeContainer container">
       <div className="row">
         <div className="col-md-8">
-          <Map />
+          {/* <Map
+            coordinates={coordinates.map((coord) => {
+              return {
+                lat: coord.latitude,
+                lng: coord.longitude,
+              };
+            })}
+          /> */}
         </div>
         <div className="col-md-4">
           <h1>INFO</h1>
+          <Stats data={coordinates} isLive={isTracking} />
         </div>
       </div>
       <div className="row">
