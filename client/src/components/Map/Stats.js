@@ -31,7 +31,13 @@ let haversineFormula = (coordsArray) => {
   return totalDistanceInMiles;
 };
 
-export default function Stats({ data, isLive, handleMarker, timeFrame,setTimeFrame }) {
+export default function Stats({
+  data,
+  isLive,
+  handleMarker,
+  timeFrame,
+  setTimeFrame,
+}) {
   if (data.length == 0) {
     return <div>Sorry, no data available :)</div>;
   } else {
@@ -68,28 +74,17 @@ export default function Stats({ data, isLive, handleMarker, timeFrame,setTimeFra
         />
 
         <div className="card-body text-black-50">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">
               Total Distance: {total_distance} miles
             </li>
-            <li class="list-group-item">
+            <li className="list-group-item">
               Avg. Speed: {Math.round(average_speed_mph)} MPH
             </li>
-            <li class="list-group-item">Maximum Speed:</li>
+            <li className="list-group-item">Maximum Speed:</li>
           </ul>
         </div>
       </div>
     );
   }
 }
-
-<div class="card border-primary mb-3" style="max-width: 20rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h4 class="card-title">Primary card title</h4>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </p>
-  </div>
-</div>;
