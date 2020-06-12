@@ -31,11 +31,10 @@ let haversineFormula = (coordsArray) => {
   return totalDistanceInMiles;
 };
 
-export default function Stats({ data, isLive }) {
+export default function Stats({ data, isLive, handleMarker, timeFrame,setTimeFrame }) {
   if (data.length == 0) {
     return <div>Sorry, no data available :)</div>;
   } else {
-    console.log(data);
     let average_speed_mph =
       (data.reduce((a, b) => a + b.speed, 0) / data.length) * 0.621371;
 
@@ -43,12 +42,12 @@ export default function Stats({ data, isLive }) {
       data.map((element) => [element.latitude, element.longitude])
     );
     total_distance = Math.round(total_distance * 100) / 100;
-    console.log(total_distance);
     let start = moment(data[0].reading_date).format("MMM DD, YYYY");
     let end =
       data.length > 1
         ? moment([data.length - 1].reading_date).format("MMM DD, YYYY")
         : moment().format("MMM DD, YYYY");
+
     return (
       <div
         className={`Stats-container card text-white bg-${
@@ -61,7 +60,12 @@ export default function Stats({ data, isLive }) {
             : "James is not currently tracking"}
         </div>
 
-        <Charts data={data} />
+        <Charts
+          data={data}
+          handleMarker={handleMarker}
+          timeframe={timeFrame}
+          setTimeFrame={setTimeFrame}
+        />
 
         <div className="card-body text-black-50">
           <ul class="list-group list-group-flush">

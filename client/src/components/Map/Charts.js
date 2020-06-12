@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
+import TimeSelector from "./TimeSelector";
 
 import moment from "moment";
 
 export default function Charts(props) {
-  console.log(props);
   const [tab, setTab] = useState(0);
 
   const tabNames = [
@@ -73,23 +73,29 @@ export default function Charts(props) {
       },
     },
   ];
-  console.log(tab);
   let currentChart = tabNames[tab];
   return (
     <div className="card-body">
       <div>
-        <ul className="pagination">
-          {tabNames.map((name, index) => (
-            <li
-              className={`page-item ${index === tab ? "active" : ""}`}
-              onClick={() => setTab(index)}
-            >
-              <a className={"page-link"} href="#">
-                {name.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="row">
+          <div className="col-md-6 flex align-items-center">
+            <ul className="pagination">
+              {tabNames.map((name, index) => (
+                <li
+                  className={`page-item ${index === tab ? "active" : ""}`}
+                  onClick={() => setTab(index)}
+                >
+                  <a className={"page-link"} href="#">
+                    {name.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="col-md-6">
+            <TimeSelector timeframe={props.timeFrame} setTimeFrame={props.setTimeFrame} />
+          </div>
+        </div>
         <div
           style={{
             backgroundColor: "rgba(91,231,254,.4)",
@@ -98,7 +104,7 @@ export default function Charts(props) {
         >
           <Line
             onElementsClick={(elems) => {
-              console.log(elems);
+              props.handleMarker(elems[0]._index);
             }}
             data={currentChart.data}
             height={250}

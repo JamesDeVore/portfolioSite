@@ -31,10 +31,9 @@ app.get("/api/checkLive", async (req, res) => {
 
   connection.query(query, function (error, results, fields) {
     let is_live = false;
-    console.log(results);
     if (results) {
       let timestamp = moment(results[0].reading_date);
-      is_live = timestamp.diff(moment(), "days") < 10;
+      is_live = Math.abs(timestamp.diff(moment(), "seconds")) < 600;
     }
     res.send({ data: is_live });
   });
@@ -58,12 +57,17 @@ app.get("/api/getCoordinates", async (req, res) => {
     end_date = moment().format("YYYY-MM-DD HH:mm:ss"),
     max_num,
   } = req.query;
+  console.log(req.query);
 
   let whereClauses = null;
+  if (start_date && start_date !== "null") {
+    whereClauses = `reading_date >= '${start_date}'`;
+  }
 
   let base_query = `select  * from readings ${
     whereClauses ? `WHERE ${whereClauses}` : ""
   } ${max_num ? "limit " + max_num : ""}`;
+  console.log(base_query);
   connection.connect();
 
   connection.query(base_query, function (error, results, fields) {

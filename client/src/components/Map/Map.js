@@ -6,7 +6,7 @@ const mapStyles = {
   height: "80vh",
 };
 
-const MapContainer = ({ google, coordinates }) => {
+const MapContainer = ({ google, coordinates, selectedMarker }) => {
   const [center, setCenter] = useState(0);
   console.log(coordinates);
   let line = (
@@ -23,12 +23,16 @@ const MapContainer = ({ google, coordinates }) => {
   for (var i = 0; i < coordinates.length; i++) {
     bounds.extend(coordinates[i]);
   }
+  let marker = null;
+  if (selectedMarker) {
+    marker = <Marker position={coordinates[selectedMarker]} />;
+  }
   return (
     <div
       style={{
-        width: "200px",
+        width: "100%",
         position: "relative",
-        height: "50vh",
+        height: "75vh",
         display: "block",
       }}
     >
@@ -36,14 +40,12 @@ const MapContainer = ({ google, coordinates }) => {
         <Map
           google={google}
           zoom={10}
-          style={mapStyles}
+          // style={mapStyles}
           initialCenter={coordinates[coordinates.length - 1]}
-          center={coordinates[center]}
+          center={selectedMarker ? coordinates[selectedMarker] : coordinates[0]}
           bounds={bounds}
         >
-          {coordinates.map((mark, index) => (
-            <Marker key={index} position={{ lat: mark.lat, lng: mark.lng }} />
-          ))}
+          {marker}
           {line}
         </Map>
       )}

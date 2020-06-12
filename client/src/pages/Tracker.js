@@ -6,32 +6,61 @@ import moment from "moment";
 export default function Tracker() {
   const [coordinates, setCoordinates] = useState([]);
   const [isTracking, setIsTracking] = useState(false);
-  useEffect(() => {
-    fetch("/api/getCoordinates")
-      .then((res) => res.json())
-      .then((res) => setCoordinates(res.data));
-  }, []);
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [timeFrame, setTimeFrame] = useState(0);
+  // useEffect(() => {
+  //   fetch("/api/getCoordinates")
+  //     .then((res) => res.json())
+  //     .then((res) => setCoordinates(res.data));
+  // }, []);
 
   useEffect(() => {
     fetch("/api/checkLive")
       .then((res) => res.json())
       .then((res) => setIsTracking(res.data));
   }, []);
+
+  useEffect(() => {
+    let start_date = null;
+    switch (String(timeFrame)) {
+      case "0":
+        start_date = moment().subtract(1, "days").format("YYYY-MM-DD");
+        break;
+      case "1":
+        start_date = moment().subtract(7, "days").format("YYYY-MM-DD");
+        break;
+    }
+    // console.log(start_date);
+    fetch(`/api/getCoordinates?start_date=${start_date}`)
+      .then((res) => res.json())
+      .then((res) => setCoordinates(res.data));
+  }, [timeFrame]);
+
+  const handleMarker = (value) => {
+    setSelectedMarker(value);
+  };
   return (
     <div className="HomeContainer container">
       <div className="row">
         <div className="col-md-8">
-          {/* <Map
+          <Map
+            selectedMarker={selectedMarker}
             coordinates={coordinates.map((coord) => {
               return {
                 lat: coord.latitude,
                 lng: coord.longitude,
               };
             })}
-          /> */}
+          />
         </div>
         <div className="col-md-4 text-center">
-          <Stats data={coordinates} isLive={isTracking} />
+          <Stats
+            data={coordinates}
+            isLive={isTracking}
+            handleMarker={handleMarker}
+            timeframe={timeFrame}
+            setTimeFrame={setTimeFrame}
+          />
         </div>
       </div>
       <div className="row">
