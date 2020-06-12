@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import Charts from "./Charts";
 
 const _deg2rad = (deg) => {
   return deg * (Math.PI / 180);
@@ -49,38 +50,42 @@ export default function Stats({ data, isLive }) {
         ? moment([data.length - 1].reading_date).format("MMM DD, YYYY")
         : moment().format("MMM DD, YYYY");
     return (
-      <div className="Stats-container container">
-        <div className="row">
-          <div className="col-md-12">
-            <h3 className="text-center">Current Status:</h3>
-            <p className="text-center font-weight-bold">
-              {isLive
-                ? "James is currently tracking!"
-                : "James is not currently tracking"}
-            </p>
-            <hr />
-          </div>
+      <div
+        className={`Stats-container card text-white bg-${
+          isLive ? "success" : "secondary"
+        } mb-3`}
+      >
+        <div className="card-header">
+          {isLive
+            ? "James is currently tracking!"
+            : "James is not currently tracking"}
         </div>
-        <div className="row">
-          <div className="col-md-12">
-            <h4>Distance:</h4>
-          </div>
-          <div className="col-md-9 offset-2 stat-box">
-            Total Distance: {total_distance} miles
-          </div>
-          {/* <div className="col-md-6 stat-box"></div> */}
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <h4>Speed</h4>
-          </div>
-          <div className="col-md-6 stat-box">
-            Avg. Speed: {Math.round(average_speed_mph)} MPH
-            <p>(maybe let the user click on it to highlight</p>
-          </div>
-          <div className="col-md-6 stat-box">Maximum Speed:</div>
+
+        <Charts data={data} />
+
+        <div className="card-body text-black-50">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Total Distance: {total_distance} miles
+            </li>
+            <li class="list-group-item">
+              Avg. Speed: {Math.round(average_speed_mph)} MPH
+            </li>
+            <li class="list-group-item">Maximum Speed:</li>
+          </ul>
         </div>
       </div>
     );
   }
 }
+
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h4 class="card-title">Primary card title</h4>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+  </div>
+</div>;

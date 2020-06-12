@@ -16,8 +16,6 @@ export default function Tracker() {
     fetch("/api/checkLive")
       .then((res) => res.json())
       .then((res) => setIsTracking(res.data));
-
-    // .then(res => setIsTracking(res.data))
   }, []);
   return (
     <div className="HomeContainer container">
@@ -32,8 +30,7 @@ export default function Tracker() {
             })}
           /> */}
         </div>
-        <div className="col-md-4">
-          <h1>INFO</h1>
+        <div className="col-md-4 text-center">
           <Stats data={coordinates} isLive={isTracking} />
         </div>
       </div>

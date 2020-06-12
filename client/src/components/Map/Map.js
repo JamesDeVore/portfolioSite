@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
 
 const mapStyles = {
-  width: "35vw",
-  height: "40vh",
+  width: "45vw",
+  height: "80vh",
 };
 
 const MapContainer = ({ google, coordinates }) => {
@@ -32,8 +32,6 @@ const MapContainer = ({ google, coordinates }) => {
         display: "block",
       }}
     >
-      <button onClick={() => setCenter(center + 1)}>Hi</button>
-
       {coordinates[0] && (
         <Map
           google={google}
@@ -43,8 +41,8 @@ const MapContainer = ({ google, coordinates }) => {
           center={coordinates[center]}
           bounds={bounds}
         >
-          {coordinates.map((mark) => (
-            <Marker position={{ lat: mark.lat, lng: mark.lng }} />
+          {coordinates.map((mark, index) => (
+            <Marker key={index} position={{ lat: mark.lat, lng: mark.lng }} />
           ))}
           {line}
         </Map>
