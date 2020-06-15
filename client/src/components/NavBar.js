@@ -51,6 +51,14 @@ export default function NavBar() {
               </li>
             );
           })}
+          <li className="nav">
+            <Link className="nav-link" to={"/tracker"}>
+              <a href="" className="navLink">
+                Tracker&nbsp;&nbsp;
+                <span className="badge badge-warning">New!</span>
+              </a>
+            </Link>
+          </li>
           {externalLinks.map((link) => (
             <li className="nav-item">
               <a href={link.url} target="blank" className="nav-link">

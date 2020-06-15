@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import Map from "../components/Map/Map";
 import Stats from "../components/Map/Stats";
 import moment from "moment";
+import arduino from "../assets/tracker/arduino.JPG";
+import arduino2 from "../assets/tracker/arduino1.JPG";
+import twilio from "../assets/tracker/twilio.png";
+import awsLogo from "../assets/aws.png";
+import Carousel from "../components/projects/ImgCarousel";
 
 export default function Tracker() {
   const [coordinates, setCoordinates] = useState([]);
@@ -42,7 +47,7 @@ export default function Tracker() {
   return (
     <div className="HomeContainer container">
       <div className="row">
-        <div className="col-md-8">
+        <div className="col-md-7">
           <Map
             selectedMarker={selectedMarker}
             coordinates={coordinates.map((coord) => {
@@ -53,7 +58,7 @@ export default function Tracker() {
             })}
           />
         </div>
-        <div className="col-md-4 text-center">
+        <div className="col-md-5 text-center">
           <Stats
             data={coordinates}
             isLive={isTracking}
@@ -64,32 +69,65 @@ export default function Tracker() {
         </div>
       </div>
       <div className="row">
-        <div className="col-10">
-          <h1>What is this?</h1>
+        <div className="col-md-8 offset-2 mb-4">
+          <div className=" card p-3 border-primary tracker-title">
+            <div className="card-header">
+              <h2 className="text-center">What is this?</h2>
+            </div>
+            <div className="card-body">
+              <p>
+                This is a "live" tracker that I created from a few arduino
+                parts, and am using it to track my progress across the country.
+              </p>
+              <hr />
+              <p>
+                Every few minutes my Arduino updates this page with my current
+                location, and if you're lucky, you'll see the charts area turn a
+                bright green, which indcates I am currently live tracking
+              </p>
+              <hr />
+              <p>
+                Feel free to text <strong>(919)717-6636</strong> if I am
+                currently tracking and you will recieve live statistics on where
+                I am now (including a google maps link)! You won't recieve a
+                response if the tracker is off...because well, it is off.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="col-12">
-          <p>
-            Anyone who has talked to me about motorcycles in the last few years
-            has undoubetdly heard me talk about my desire to take along cross
-            country road trip. No real route planned out, no real schedule, just
-            me and the open road.
-          </p>
-          <p>
-            Because I{" "}
-            <ul>
-              <li>Want to be safe</li>
-              <li>Like making things</li>
-              <li>Want to know the exact route I end up taking</li>
-            </ul>
-            <p>
-              I went and created a one of a kind (marketing speak for 'a little
-              janky') arduino based motorcycle tracker.
-            </p>
-          </p>
+        <div className="col-md-10 offset-1">
+          <div className="card border-primary p-3">
+            <div className="card-header">
+              <h2>How does it work?</h2>
+            </div>
+            <div className="card-img mt-2">
+              <div className="carousel-container">
+                <Carousel images={[arduino, arduino2, twilio]} />
+              </div>
+            </div>
+            <div className="card-body">
+              <ol className="list-group">
+                <li className="list-group-item">
+                  First, the arduino fetches my exact GPS coordinates by
+                  communicating with sattelites that are orbiting the earth.
+                </li>
+                <li className="list-group-item">
+                  Next, using a prepaid SIM card, the arduino sends a text
+                  containing location, speed, and altitude date to Twilio, which
+                  is essentially a digital phone number that I can use to
+                  trigger events (called 'webhooks').
+                </li>
+                <li className="list-group-item">
+                  As soon as Twilio recieves the text, the forwrd the message to
+                  this site which validates the data, transforms it, and saves
+                  onto my own person AWS database. Then, when people (like you)
+                  visit this page, the database serves up all the data that has
+                  been collected so far. Simple, right?
+                </li>
+              </ol>
+            </div>
+          </div>
         </div>
-      </div>{" "}
-      <div className="row">
-        <h3>How it works:</h3>
       </div>
     </div>
   );

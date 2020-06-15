@@ -93,9 +93,13 @@ export default function Charts(props) {
             </ul>
           </div>
           <div className="col-md-6">
-            <TimeSelector timeframe={props.timeFrame} setTimeFrame={props.setTimeFrame} />
+            <TimeSelector
+              timeframe={props.timeFrame}
+              setTimeFrame={props.setTimeFrame}
+            />
           </div>
         </div>
+        <p className="font-italic">Click on a data point to highlight on map</p>
         <div
           style={{
             backgroundColor: "rgba(91,231,254,.4)",
