@@ -51,12 +51,12 @@ export default function Tracker() {
     <div className="HomeContainer container">
       <div className="row">
         <div className="col-md-10 offset-1">
-          <div class="jumbotron">
-            <h2 class="display-3">
+          <div className="jumbotron">
+            <h2 className="display-3">
               Thanks for checking out my tracker!
             </h2>
             <hr />
-            <p class="lead">
+            <p className="lead">
               Just FYI, I haven't actually left on my trip cross-country yet so
               until the end of July, this page won't really accomplish anything
               until that happens. Until then you'll just see various test data
