@@ -111,7 +111,7 @@ export default function Charts(props) {
               props.handleMarker(elems[0]._index);
             }}
             data={currentChart.data}
-            height={250}
+            height={175}
           />
         </div>
       </div>

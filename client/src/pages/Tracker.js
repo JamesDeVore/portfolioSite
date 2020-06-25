@@ -50,6 +50,22 @@ export default function Tracker() {
   return (
     <div className="HomeContainer container">
       <div className="row">
+        <div className="col-md-10 offset-1">
+          <div class="jumbotron">
+            <h2 class="display-3">
+              Thanks for checking out my tracker!
+            </h2>
+            <hr />
+            <p class="lead">
+              Just FYI, I haven't actually left on my trip cross-country yet so
+              until the end of July, this page won't really accomplish anything
+              until that happens. Until then you'll just see various test data
+              points, and nothing terribly exciting.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="row">
         <div className="col-md-7">
           <Map
             selectedMarker={selectedMarker}

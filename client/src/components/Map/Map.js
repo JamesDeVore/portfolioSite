@@ -32,7 +32,7 @@ const MapContainer = ({ google, coordinates, selectedMarker }) => {
       style={{
         width: "100%",
         position: "relative",
-        height: "100vh",
+        height: "85vh",
         display: "block",
       }}
     >
