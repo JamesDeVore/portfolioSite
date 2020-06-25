@@ -38,53 +38,48 @@ export default function Stats({
   timeFrame,
   setTimeFrame,
 }) {
-  if (data.length == 0) {
-    return <div>Sorry, no data available :)</div>;
-  } else {
-    let average_speed_mph =
-      (data.reduce((a, b) => a + b.speed, 0) / data.length) * 0.621371;
+  // if (data.length == 0) {
+  //   return <div>Sorry, no data available :)</div>;
+  // } else {
+  let average_speed_mph =
+    (data.reduce((a, b) => a + b.speed, 0) / data.length) * 0.621371;
 
-    let total_distance = haversineFormula(
-      data.map((element) => [element.latitude, element.longitude])
-    );
-    total_distance = Math.round(total_distance * 100) / 100;
-    let start = moment(data[0].reading_date).format("MMM DD, YYYY");
-    let end =
-      data.length > 1
-        ? moment([data.length - 1].reading_date).format("MMM DD, YYYY")
-        : moment().format("MMM DD, YYYY");
+  let total_distance = haversineFormula(
+    data.map((element) => [element.latitude, element.longitude])
+  );
+  total_distance = Math.round(total_distance * 100) / 100;
 
-    return (
-      <div
-        className={`Stats-container card text-white bg-${
-          isLive ? "success" : "secondary"
-        } mb-3`}
-      >
-        <div className="card-header">
-          {isLive
-            ? "James is currently tracking!"
-            : "James is not currently tracking"}
-        </div>
-
-        <Charts
-          data={data}
-          handleMarker={handleMarker}
-          timeframe={timeFrame}
-          setTimeFrame={setTimeFrame}
-        />
-
-        <div className="card-body text-black-50">
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">
-              Total Distance: {total_distance} miles
-            </li>
-            <li className="list-group-item">
-              Avg. Speed: {Math.round(average_speed_mph)} MPH
-            </li>
-            <li className="list-group-item">Maximum Speed:</li>
-          </ul>
-        </div>
+  return (
+    <div
+      className={`Stats-container card text-white bg-${
+        isLive ? "success" : "secondary"
+      } mb-3`}
+    >
+      <div className="card-header">
+        {isLive
+          ? "James is currently tracking!"
+          : "James is not currently tracking"}
       </div>
-    );
-  }
+
+      <Charts
+        data={data}
+        handleMarker={handleMarker}
+        timeframe={timeFrame}
+        setTimeFrame={setTimeFrame}
+      />
+
+      <div className="card-body text-black-50">
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">
+            Total Distance: {total_distance} miles
+          </li>
+          <li className="list-group-item">
+            Avg. Speed: {Math.round(average_speed_mph)} MPH
+          </li>
+          <li className="list-group-item">Maximum Speed:</li>
+        </ul>
+      </div>
+    </div>
+  );
+  // }
 }

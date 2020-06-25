@@ -33,7 +33,7 @@ app.get("/api/checkLive", async (req, res) => {
     let is_live = false;
     if (results) {
       let timestamp = moment(results[0].reading_date);
-      is_live = Math.abs(timestamp.diff(moment(), "seconds")) < 600;
+      is_live = Math.abs(timestamp.diff(moment(), "seconds")) < 1200;
     }
     res.send({ data: is_live });
   });
@@ -54,7 +54,7 @@ app.get("/api/getCoordinates", async (req, res) => {
   //yesterday moment().subtract(1, "days").format("YYYY-MM-DD HH:mm:ss")
   let {
     start_date,
-    end_date = moment().format("YYYY-MM-DD HH:mm:ss"),
+    end_date = moment().format("YYYY-MM-DD"),
     max_num,
   } = req.query;
   console.log(req.query);

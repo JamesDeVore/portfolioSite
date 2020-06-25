@@ -28,17 +28,20 @@ export default function Tracker() {
   useEffect(() => {
     let start_date = null;
     switch (String(timeFrame)) {
-      case "0":
-        start_date = moment().subtract(1, "days").format("YYYY-MM-DD");
-        break;
       case "1":
         start_date = moment().subtract(7, "days").format("YYYY-MM-DD");
+        break;
+      case "2":
+        start_date = moment().subtract(1, "days").format("YYYY-MM-DD");
         break;
     }
     // console.log(start_date);
     fetch(`/api/getCoordinates?start_date=${start_date}`)
       .then((res) => res.json())
-      .then((res) => setCoordinates(res.data));
+      .then((res) => {
+        console.log(res);
+        setCoordinates(res.data);
+      });
   }, [timeFrame]);
 
   const handleMarker = (value) => {
@@ -120,9 +123,9 @@ export default function Tracker() {
                 <li className="list-group-item">
                   As soon as Twilio recieves the text, the forwrd the message to
                   this site which validates the data, transforms it, and saves
-                  onto my own person AWS database. Then, when people (like you)
-                  visit this page, the database serves up all the data that has
-                  been collected so far. Simple, right?
+                  onto my own personal AWS database. Then, when people (like
+                  you) visit this page, the database serves up all the data that
+                  has been collected so far. Simple, right?
                 </li>
               </ol>
             </div>

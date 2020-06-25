@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TimeSelector({ timeFrame, setTimeFrame }) {
-  let options = ["Past Day", "Past Week", "All Time"];
+  let options = ["All Time","Past Week","Past Day"];
   return (
     <div class="form-group">
       {/* <label for="exampleSelect1"></label> */}
